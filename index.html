@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Shopping Carts</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div style="display: flex; align-items: stretch;">
+        <div class="leftShoppingCarts">
+            <div class="container">
+                <h1 class="text-center my-4">Shopping Carts</h1>
+                <div class="row">
+                    <div class="px-20 col-12 mb-5">
+                        <table class="table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Cost ($)</th>
+                                    <th>Lead Time (days)</th>
+                                    <th>Reference Link</th>
+                                    <th>Total Cost ($)</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="col-xs-6 col-md-6">
+                        <h3>Total cost: $ <span id="totalSum"></span></h3>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <h3>Total Lead-time: days <span id="totalLeadTime"></span></h3>
+                    </div>
+
+                </div>
+
+
+                <form id="addItemForm" class="mb-3">
+                    <div class="form-group d-inline-block w-20">
+                        <label for="itemName">Item Name</label>
+                        <input type="text" id="itemName" class="form-control" placeholder="Item Name" required>
+                    </div>
+                    <div class="form-group  d-inline-block w-20">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" id="quantity" class="form-control" placeholder="Quantity" required>
+                    </div>
+                    <div class="form-group d-inline-block w-20">
+                        <label for="unitCost">Unit Cost ($)</label>
+                        <input type="number" id="unitCost" class="form-control" placeholder="Unit Cost ($)" required
+                            step="0.01">
+                    </div>
+                    <div class="form-group d-inline-block w-20">
+                        <label for="leadTime">Lead Time (days)</label>
+                        <input type="number" id="leadTime" class="form-control" placeholder="Lead Time (days)" required>
+                    </div>
+                    <div class="form-group d-inline-block w-20">
+                        <label for="referenceLink">Reference Link</label>
+                        <input type="url" id="referenceLink" class="form-control" placeholder="Reference Link" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Item</button>
+                </form>
+            </div>
+
+
+
+        </div>
+        <!-- Vertical Resizer -->
+        <div class="resizer" style="cursor: ew-resize; width: 5px; background-color: #000;"></div>
+        <div class="rightTable">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu3">Menu 3</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade show active">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Item #</th>
+                                <th>Item Name</th>
+                                <th>Item Spec</th>
+                                <th>Unit Price</th>
+                                <th>Supplier Name</th>
+                                <th>Delivery Lead Time</th>
+                                <th>Supplier Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Sample data rows -->
+                            <tr>
+                                <td>1</td>
+                                <td>Item A</td>
+                                <td>Spec A</td>
+                                <td>$10.00</td>
+                                <td>Supplier A</td>
+                                <td>5 days</td>
+                                <td><a href="#">Link A</a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Item B</td>
+                                <td>Spec B</td>
+                                <td>$15.00</td>
+                                <td>Supplier B</td>
+                                <td>3 days</td>
+                                <td><a href="#">Link B</a></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Item C</td>
+                                <td>Spec C</td>
+                                <td>$20.00</td>
+                                <td>Supplier C</td>
+                                <td>7 days</td>
+                                <td><a href="#">Link C</a></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Item D</td>
+                                <td>Spec D</td>
+                                <td>$25.00</td>
+                                <td>Supplier D</td>
+                                <td>2 days</td>
+                                <td><a href="#">Link D</a></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Item E</td>
+                                <td>Spec E</td>
+                                <td>$30.00</td>
+                                <td>Supplier E</td>
+                                <td>4 days</td>
+                                <td><a href="#">Link E</a></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Item F</td>
+                                <td>Spec F</td>
+                                <td>$35.00</td>
+                                <td>Supplier F</td>
+                                <td>1 day</td>
+                                <td><a href="#">Link F</a></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Item G</td>
+                                <td>Spec G</td>
+                                <td>$40.00</td>
+                                <td>Supplier G</td>
+                                <td>6 days</td>
+                                <td><a href="#">Link G</a></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Item H</td>
+                                <td>Spec H</td>
+                                <td>$45.00</td>
+                                <td>Supplier H</td>
+                                <td>8 days</td>
+                                <td><a href="#">Link H</a></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Item I</td>
+                                <td>Spec I</td>
+                                <td>$50.00</td>
+                                <td>Supplier I</td>
+                                <td>10 days</td>
+                                <td><a href="#">Link I</a></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Item J</td>
+                                <td>Spec J</td>
+                                <td>$55.00</td>
+                                <td>Supplier J</td>
+                                <td>12 days</td>
+                                <td><a href="#">Link J</a></td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>Item K</td>
+                                <td>Spec K</td>
+                                <td>$60.00</td>
+                                <td>Supplier K</td>
+                                <td>14 days</td>
+                                <td><a href="#">Link K</a></td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>Item L</td>
+                                <td>Spec L</td>
+                                <td>$65.00</td>
+                                <td>Supplier L</td>
+                                <td>16 days</td>
+                                <td><a href="#">Link L</a></td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Item M</td>
+                                <td>Spec M</td>
+                                <td>$70.00</td>
+                                <td>Supplier M</td>
+                                <td>18 days</td>
+                                <td><a href="#">Link M</a></td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>Item N</td>
+                                <td>Spec N</td>
+                                <td>$75.00</td>
+                                <td>Supplier N</td>
+                                <td>20 days</td>
+                                <td><a href="#">Link N</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>Item O</td>
+                                <td>Spec O</td>
+                                <td>$80.00</td>
+                                <td>Supplier O</td>
+                                <td>22 days</td>
+                                <td><a href="#">Link O</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Item #</th>
+                                <th>Item Name</th>
+                                <th>Item Spec</th>
+                                <th>Unit Price</th>
+                                <th>Supplier Name</th>
+                                <th>Delivery Lead Time</th>
+                                <th>Supplier Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Sample data rows -->
+                            <tr>
+                                <td>1</td>
+                                <td>Item A</td>
+                                <td>Spec A</td>
+                                <td>$10.00</td>
+                                <td>Supplier A</td>
+                                <td>5 days</td>
+                                <td><a href="#">Link A</a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Item B</td>
+                                <td>Spec B</td>
+                                <td>$15.00</td>
+                                <td>Supplier B</td>
+                                <td>3 days</td>
+                                <td><a href="#">Link B</a></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Item C</td>
+                                <td>Spec C</td>
+                                <td>$20.00</td>
+                                <td>Supplier C</td>
+                                <td>7 days</td>
+                                <td><a href="#">Link C</a></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Item D</td>
+                                <td>Spec D</td>
+                                <td>$25.00</td>
+                                <td>Supplier D</td>
+                                <td>2 days</td>
+                                <td><a href="#">Link D</a></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Item E</td>
+                                <td>Spec E</td>
+                                <td>$30.00</td>
+                                <td>Supplier E</td>
+                                <td>4 days</td>
+                                <td><a href="#">Link E</a></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Item F</td>
+                                <td>Spec F</td>
+                                <td>$35.00</td>
+                                <td>Supplier F</td>
+                                <td>1 day</td>
+                                <td><a href="#">Link F</a></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Item G</td>
+                                <td>Spec G</td>
+                                <td>$40.00</td>
+                                <td>Supplier G</td>
+                                <td>6 days</td>
+                                <td><a href="#">Link G</a></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Item H</td>
+                                <td>Spec H</td>
+                                <td>$45.00</td>
+                                <td>Supplier H</td>
+                                <td>8 days</td>
+                                <td><a href="#">Link H</a></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Item I</td>
+                                <td>Spec I</td>
+                                <td>$50.00</td>
+                                <td>Supplier I</td>
+                                <td>10 days</td>
+                                <td><a href="#">Link I</a></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Item J</td>
+                                <td>Spec J</td>
+                                <td>$55.00</td>
+                                <td>Supplier J</td>
+                                <td>12 days</td>
+                                <td><a href="#">Link J</a></td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>Item K</td>
+                                <td>Spec K</td>
+                                <td>$60.00</td>
+                                <td>Supplier K</td>
+                                <td>14 days</td>
+                                <td><a href="#">Link K</a></td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>Item L</td>
+                                <td>Spec L</td>
+                                <td>$65.00</td>
+                                <td>Supplier L</td>
+                                <td>16 days</td>
+                                <td><a href="#">Link L</a></td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Item M</td>
+                                <td>Spec M</td>
+                                <td>$70.00</td>
+                                <td>Supplier M</td>
+                                <td>18 days</td>
+                                <td><a href="#">Link M</a></td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>Item N</td>
+                                <td>Spec N</td>
+                                <td>$75.00</td>
+                                <td>Supplier N</td>
+                                <td>20 days</td>
+                                <td><a href="#">Link N</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>Item O</td>
+                                <td>Spec O</td>
+                                <td>$80.00</td>
+                                <td>Supplier O</td>
+                                <td>22 days</td>
+                                <td><a href="#">Link O</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="menu2" class="tab-pane fade">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Item #</th>
+                                <th>Item Name</th>
+                                <th>Item Spec</th>
+                                <th>Unit Price</th>
+                                <th>Supplier Name</th>
+                                <th>Delivery Lead Time</th>
+                                <th>Supplier Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Sample data rows -->
+                            <tr>
+                                <td>1</td>
+                                <td>Item A</td>
+                                <td>Spec A</td>
+                                <td>$10.00</td>
+                                <td>Supplier A</td>
+                                <td>5 days</td>
+                                <td><a href="#">Link A</a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Item B</td>
+                                <td>Spec B</td>
+                                <td>$15.00</td>
+                                <td>Supplier B</td>
+                                <td>3 days</td>
+                                <td><a href="#">Link B</a></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Item C</td>
+                                <td>Spec C</td>
+                                <td>$20.00</td>
+                                <td>Supplier C</td>
+                                <td>7 days</td>
+                                <td><a href="#">Link C</a></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Item D</td>
+                                <td>Spec D</td>
+                                <td>$25.00</td>
+                                <td>Supplier D</td>
+                                <td>2 days</td>
+                                <td><a href="#">Link D</a></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Item E</td>
+                                <td>Spec E</td>
+                                <td>$30.00</td>
+                                <td>Supplier E</td>
+                                <td>4 days</td>
+                                <td><a href="#">Link E</a></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Item F</td>
+                                <td>Spec F</td>
+                                <td>$35.00</td>
+                                <td>Supplier F</td>
+                                <td>1 day</td>
+                                <td><a href="#">Link F</a></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Item G</td>
+                                <td>Spec G</td>
+                                <td>$40.00</td>
+                                <td>Supplier G</td>
+                                <td>6 days</td>
+                                <td><a href="#">Link G</a></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Item H</td>
+                                <td>Spec H</td>
+                                <td>$45.00</td>
+                                <td>Supplier H</td>
+                                <td>8 days</td>
+                                <td><a href="#">Link H</a></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Item I</td>
+                                <td>Spec I</td>
+                                <td>$50.00</td>
+                                <td>Supplier I</td>
+                                <td>10 days</td>
+                                <td><a href="#">Link I</a></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Item J</td>
+                                <td>Spec J</td>
+                                <td>$55.00</td>
+                                <td>Supplier J</td>
+                                <td>12 days</td>
+                                <td><a href="#">Link J</a></td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>Item K</td>
+                                <td>Spec K</td>
+                                <td>$60.00</td>
+                                <td>Supplier K</td>
+                                <td>14 days</td>
+                                <td><a href="#">Link K</a></td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>Item L</td>
+                                <td>Spec L</td>
+                                <td>$65.00</td>
+                                <td>Supplier L</td>
+                                <td>16 days</td>
+                                <td><a href="#">Link L</a></td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Item M</td>
+                                <td>Spec M</td>
+                                <td>$70.00</td>
+                                <td>Supplier M</td>
+                                <td>18 days</td>
+                                <td><a href="#">Link M</a></td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>Item N</td>
+                                <td>Spec N</td>
+                                <td>$75.00</td>
+                                <td>Supplier N</td>
+                                <td>20 days</td>
+                                <td><a href="#">Link N</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>Item O</td>
+                                <td>Spec O</td>
+                                <td>$80.00</td>
+                                <td>Supplier O</td>
+                                <td>22 days</td>
+                                <td><a href="#">Link O</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="menu3" class="tab-pane fade">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Item #</th>
+                                <th>Item Name</th>
+                                <th>Item Spec</th>
+                                <th>Unit Price</th>
+                                <th>Supplier Name</th>
+                                <th>Delivery Lead Time</th>
+                                <th>Supplier Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Sample data rows -->
+                            <tr>
+                                <td>1</td>
+                                <td>Item A</td>
+                                <td>Spec A</td>
+                                <td>$10.00</td>
+                                <td>Supplier A</td>
+                                <td>5 days</td>
+                                <td><a href="#">Link A</a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Item B</td>
+                                <td>Spec B</td>
+                                <td>$15.00</td>
+                                <td>Supplier B</td>
+                                <td>3 days</td>
+                                <td><a href="#">Link B</a></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Item C</td>
+                                <td>Spec C</td>
+                                <td>$20.00</td>
+                                <td>Supplier C</td>
+                                <td>7 days</td>
+                                <td><a href="#">Link C</a></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Item D</td>
+                                <td>Spec D</td>
+                                <td>$25.00</td>
+                                <td>Supplier D</td>
+                                <td>2 days</td>
+                                <td><a href="#">Link D</a></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Item E</td>
+                                <td>Spec E</td>
+                                <td>$30.00</td>
+                                <td>Supplier E</td>
+                                <td>4 days</td>
+                                <td><a href="#">Link E</a></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Item F</td>
+                                <td>Spec F</td>
+                                <td>$35.00</td>
+                                <td>Supplier F</td>
+                                <td>1 day</td>
+                                <td><a href="#">Link F</a></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Item G</td>
+                                <td>Spec G</td>
+                                <td>$40.00</td>
+                                <td>Supplier G</td>
+                                <td>6 days</td>
+                                <td><a href="#">Link G</a></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Item H</td>
+                                <td>Spec H</td>
+                                <td>$45.00</td>
+                                <td>Supplier H</td>
+                                <td>8 days</td>
+                                <td><a href="#">Link H</a></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Item I</td>
+                                <td>Spec I</td>
+                                <td>$50.00</td>
+                                <td>Supplier I</td>
+                                <td>10 days</td>
+                                <td><a href="#">Link I</a></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Item J</td>
+                                <td>Spec J</td>
+                                <td>$55.00</td>
+                                <td>Supplier J</td>
+                                <td>12 days</td>
+                                <td><a href="#">Link J</a></td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>Item K</td>
+                                <td>Spec K</td>
+                                <td>$60.00</td>
+                                <td>Supplier K</td>
+                                <td>14 days</td>
+                                <td><a href="#">Link K</a></td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>Item L</td>
+                                <td>Spec L</td>
+                                <td>$65.00</td>
+                                <td>Supplier L</td>
+                                <td>16 days</td>
+                                <td><a href="#">Link L</a></td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Item M</td>
+                                <td>Spec M</td>
+                                <td>$70.00</td>
+                                <td>Supplier M</td>
+                                <td>18 days</td>
+                                <td><a href="#">Link M</a></td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>Item N</td>
+                                <td>Spec N</td>
+                                <td>$75.00</td>
+                                <td>Supplier N</td>
+                                <td>20 days</td>
+                                <td><a href="#">Link N</a></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>Item O</td>
+                                <td>Spec O</td>
+                                <td>$80.00</td>
+                                <td>Supplier O</td>
+                                <td>22 days</td>
+                                <td><a href="#">Link O</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Drag and drop functionality for resizing
+        const resizer = document.querySelector('.resizer');
+        const leftPanel = document.querySelector('.leftShoppingCarts');
+        const rightPanel = document.querySelector('.rightTable');
+
+        const minLeftWidth = 200; // Minimum width for the left panel
+        const maxLeftWidth = window.innerWidth - 550; // Maximum width for the left panel
+
+        resizer.addEventListener('mousedown', function (e) {
+            document.addEventListener('mousemove', resize);
+            document.addEventListener('mouseup', stopResize);
+        });
+
+        function resize(e) {
+            let newWidth = e.clientX; // Get the new width based on mouse position
+
+            // Apply constraints
+            if (newWidth < minLeftWidth) {
+                newWidth = minLeftWidth; // Set to minimum width
+            } else if (newWidth > maxLeftWidth) {
+                newWidth = maxLeftWidth; // Set to maximum width
+            }
+
+            leftPanel.style.width = newWidth + 'px'; // Set the new width
+        }
+
+        function stopResize() {
+            document.removeEventListener('mousemove', resize);
+            document.removeEventListener('mouseup', stopResize);
+        }
+    </script>
+</body>
+
+</html>

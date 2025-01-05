@@ -1,0 +1,21 @@
+.leftShoppingCarts {
+    flex: 0 0 auto;
+    width: 50%;
+    min-width: 500px;
+    /* Set a minimum width */
+}
+
+.rightTable {
+    flex: 1;
+    min-width: 500px;
+    /* Set a minimum width */
+}
+
+.form-control {
+    height: 20px;
+    /* Set the height of the input box */
+    padding: 0.25rem;
+    /* Adjust padding to fit the height */
+    font-size: 14px;
+    /* Optional: Adjust font size */
+}
