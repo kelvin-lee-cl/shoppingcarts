@@ -1,10 +1,3 @@
-.leftShoppingCarts {
-    flex: 0 0 auto;
-    width: 50%;
-    min-width: 500px;
-    /* Set a minimum width */
-}
-
 .rightTable {
     flex: 1;
     min-width: 500px;
